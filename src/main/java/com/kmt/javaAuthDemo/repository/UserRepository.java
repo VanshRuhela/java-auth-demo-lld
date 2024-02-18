@@ -10,6 +10,7 @@ public class UserRepository {
 
     public void addUser(User user) {
         users.put(user.getUsername(), user);
+        System.out.println("User added with username: " + user.getUsername());
     }
 
     public User getUserByUsername(String username) {

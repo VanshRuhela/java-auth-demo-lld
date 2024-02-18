@@ -2,16 +2,17 @@ package com.kmt.javaAuthDemo;
 
 import com.kmt.javaAuthDemo.controller.BookController;
 import com.kmt.javaAuthDemo.model.Book;
-import com.kmt.javaAuthDemo.model.User;
 import com.kmt.javaAuthDemo.repository.BookRepository;
 import com.kmt.javaAuthDemo.repository.UserRepository;
 import com.kmt.javaAuthDemo.service.AuthenticationService;
 import com.kmt.javaAuthDemo.service.BookService;
+import com.kmt.javaAuthDemo.service.UserService;
 
 public class JavaAuthDemoApplication {
 
     public static void main(String[] args) {
         UserRepository userRepository = new UserRepository();
+        UserService userService = new UserService(userRepository);
         AuthenticationService authenticationService = new AuthenticationService(userRepository);
         BookRepository bookRepository = new BookRepository();
         BookService bookService = new BookService(bookRepository);
@@ -24,7 +25,7 @@ public class JavaAuthDemoApplication {
 
 
         //Admin user creation
-        userRepository.addUser(new User("admin", "admin123"));
+        userService.registerUser("admin", "admin123");
 
         System.out.println("\nLibrary Management app started...\n");
 
