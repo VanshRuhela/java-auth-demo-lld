@@ -12,14 +12,11 @@ public class AuthenticationService {
     }
 
     public boolean authenticate(String username, String password) {
-        System.out.println("Attempting to authenticate user: " + username);
         User user = userRepository.getUserByUsername(username);
         String hashedPassword = PasswordHashingUtil.hashPassword(password);
         if (user != null && user.getPassword().equals(hashedPassword)) {
-            System.out.println("Authentication successful for user: " + username);
             return true;
         } else {
-            System.out.println("Authentication failed for user: " + username);
             return false;
         }
     }
