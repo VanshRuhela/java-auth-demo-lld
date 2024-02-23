@@ -30,19 +30,15 @@ public class JavaAuthDemoApplication {
         AuthenticationController authenticationController = new AuthenticationController(authenticationService, sessionService);
 
         System.out.println("Library Management App initializing...\n");
-
         // Initialize repository with some sample books
         bookRepository.addBook(new Book("The Great Gatsby", "F. Scott Fitzgerald"));
-
-
         //Admin user creation
         userService.registerUser("admin", "admin123");
 
-        System.out.println("\nLibrary Management app started...\n");
 
+        System.out.println("\nLibrary Management app started...\n");
         // Admin user login
         String adminSessionId = authenticationController.login("admin", "admin123");
-
         // Admin user uses his session Id to add book
         bookController.addBook(adminSessionId, new Book("To Kill a Mockingbird", "Harper Lee"));
         System.out.println("");
