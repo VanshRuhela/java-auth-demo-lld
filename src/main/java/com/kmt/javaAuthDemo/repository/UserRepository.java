@@ -8,6 +8,9 @@ import java.util.Map;
 public class UserRepository {
     private Map<String, User> users = new HashMap<>();
 
+    public UserRepository() {
+    }
+
     public void addUser(User user) {
         users.put(user.getUsername(), user);
         System.out.println("User added with username: " + user.getUsername());

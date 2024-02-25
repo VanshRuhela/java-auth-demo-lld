@@ -1,19 +1,18 @@
 package com.kmt.javaAuthDemo.model;
 
+import lombok.Data;
+
+@Data
 public class User {
     private String username;
     private String password;
 
-    public User(String username, String password) {
+    private Role role;
+
+
+    public User(String username, String password, Role role) {
         this.username = username;
         this.password = password;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
+        this.role = role;
     }
 }
