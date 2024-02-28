@@ -40,9 +40,5 @@ public class BookRepository {
         books.remove(id);
         System.out.println("Book deleted with ID: " + id);
     }
-
-    private String generateUniqueId() {
-        return UUID.randomUUID().toString();
-    }
 }
 
